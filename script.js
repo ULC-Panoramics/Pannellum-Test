@@ -3,7 +3,7 @@ var viewer = pannellum.viewer('panorama', {
     "type": "equirectangular",
     "panorama": "360.jpg", // Your 360 panorama image
     "autoLoad": true,
-    "compass": true,
+    "compass": true, // Enable the compass at the bottom right
     "hfov": 110, // Horizontal FOV (zoom level)
     "yaw": 180, // Set initial yaw value
     "showControls": true // Ensure controls are visible for interaction
@@ -19,9 +19,6 @@ function updateDegreeIndicator() {
     if (degree < 0) {
         degree += 360;
     }
-
-    // Debugging: Log the yaw value to the console to verify it is changing
-    console.log("Current Yaw: ", yaw);
 
     // Update the degree indicator text with normalized yaw value
     document.getElementById('degreeIndicator').innerText = `${degree.toFixed(1)}°`;
