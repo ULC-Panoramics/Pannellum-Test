@@ -1,17 +1,17 @@
-// Set the correct yaw offset (adjust this value to correct the degree difference)
-var yawOffset = 145;  // The offset needed to correct the starting position
+// Set the global yaw offset (difference between 0° and actual start direction)
+var yawOffset = 145;  // Adjust this value based on the visual misalignment
 
 // Function to update degree scale
 function updateDegreeScale() {
     var degreeScale = document.getElementById('degreeScale');
     var currentScene = viewer.getScene();
     var initialYaw = {
-      "image-1": 14,
-      "image-2": 14
+      "image-1": 14, // Adjust if needed
+      "image-2": 14  // Adjust if needed
     };
 
-    // Get the adjusted yaw with the offset
-    var adjustedYaw = viewer.getYaw() - initialYaw[currentScene] + yawOffset;
+    // Get the current yaw from the viewer and apply the yawOffset correction
+    var adjustedYaw = viewer.getYaw() + yawOffset;
 
     // Normalize the yaw to be between 0 and 360 degrees
     if (adjustedYaw < 0) {
@@ -21,7 +21,7 @@ function updateDegreeScale() {
       adjustedYaw -= 360;
     }
 
-    // Update the text content of the degree scale element
+    // Update the degree indicator with the corrected yaw
     degreeScale.innerText = `${adjustedYaw.toFixed(1)}°`;
 }
 
