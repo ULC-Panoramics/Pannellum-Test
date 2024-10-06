@@ -147,7 +147,7 @@
 }
 
 .popup-container.four {
-    left: 380%;
+    display: none;
 } 
 
 /* Responsive Styles */
