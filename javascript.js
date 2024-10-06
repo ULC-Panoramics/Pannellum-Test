@@ -11,9 +11,9 @@ var viewer = pannellum.viewer('panorama', {
             "type": "equirectangular",
             "panorama": "360.jpg", 
             "hfov":200,
-            "yaw":-140,
+            "yaw":0,
             "compass":true,
-            "northOffset":0
+            "northOffset":-140
         },
   
         "image-2": {
@@ -24,9 +24,9 @@ var viewer = pannellum.viewer('panorama', {
         "vaov":150,
         "minPitch":-25,
         "maxPitch": 25,
-        "yaw": -140,
+        "yaw": 0,
         "compass":true,
-        "northOffset":0
+        "northOffset":-140
       },
 
        "image-3": {
