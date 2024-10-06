@@ -1,17 +1,37 @@
-// Set the global yaw offset (difference between 0° and actual start direction)
-var yawOffset = 145;  // Adjust this value based on the visual misalignment
+// Initialize the Pannellum viewer
+var viewer = pannellum.viewer('panorama', { 
+    "autoLoad": true,
+    "autoRotate": 0,
+    "showControls": false,  
+    "default": {
+        "firstScene": "image-1",
+    },
+
+    "scenes": {
+        "image-1": {
+            "type": "equirectangular",
+            "panorama": "360.JPG", 
+            "hfov": 200,
+            "yaw": -145,  // Set the yaw so that 145° becomes the new 0°
+            "compass": true,
+            "northOffset": 0  // Keep the north offset at 0 or adjust if needed
+        },
+  
+        "image-2": {
+            "type": "equirectangular",
+            "panorama": "360.JPG",
+            "hfov": 200,
+            "yaw": -145,  // Set the yaw for image-2 as well
+            "compass": true,
+            "northOffset": 0
+        }
+    }
+});
 
 // Function to update degree scale
 function updateDegreeScale() {
     var degreeScale = document.getElementById('degreeScale');
-    var currentScene = viewer.getScene();
-    var initialYaw = {
-      "image-1": 14, // Adjust if needed
-      "image-2": 14  // Adjust if needed
-    };
-
-    // Get the current yaw from the viewer and apply the yawOffset correction
-    var adjustedYaw = viewer.getYaw() + yawOffset;
+    var adjustedYaw = viewer.getYaw();
 
     // Normalize the yaw to be between 0 and 360 degrees
     if (adjustedYaw < 0) {
