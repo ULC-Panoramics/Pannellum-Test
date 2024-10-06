@@ -10,7 +10,7 @@ var viewer = pannellum.viewer('panorama', {
     "scenes": {
         "image-1": {
             "type": "equirectangular",
-            "panorama": "360.JPG", 
+            "panorama": "360.jpg", 
             "hfov": 200,
             "yaw": 0,  // Set the initial yaw as 0 for the view
             "compass": true,
@@ -19,7 +19,7 @@ var viewer = pannellum.viewer('panorama', {
   
         "image-2": {
             "type": "equirectangular",
-            "panorama": "360.JPG",
+            "panorama": "360.jpg",
             "hfov": 200,
             "yaw": 0,  // Again, start this at 0° relative to the new orientation
             "compass": true,
