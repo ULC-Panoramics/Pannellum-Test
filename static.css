@@ -146,10 +146,6 @@
     left: -50%;
 }
 
-.popup-container.four {
-    left: 380%;
-} 
-
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {
     .popup-container.one,
