@@ -41,20 +41,6 @@ var viewer = pannellum.viewer('panorama', {
         "compass":true,
         "northOffset":0
       },
-
-      "image-4":{
-        "type": "equirectangular",
-         "panorama": "NA",
-         "hfov":200,
-         "haov": 360,
-         "vaov":150,
-         "minPitch":-25,
-         "maxPitch": 25,
-         "yaw": 150,
-         "compass":true,
-         "northOffset":0
-        
-    //   }, 
     }
 }});
 function togglePopupBackground(containerId, isHover) {
@@ -76,13 +62,10 @@ function togglePopupWindows() {
             popupContainer2.style.display = 'block';
         }
         var popupContainer3 = document.getElementById('popup-container-3');
-        var popupContainer4 = document.getElementById('popup-container-4');
-        if (popupContainer3.style.display === 'block' || popupContainer4.style.display === 'block') {
+             if (popupContainer3.style.display === 'block' 
             popupContainer3.style.display = 'none';
-            popupContainer4.style.display = 'none';
         } else {
             popupContainer3.style.display = 'block';
-            popupContainer4.style.display = 'block';
     }
    
     } 
@@ -107,10 +90,6 @@ document.getElementById('image-2').addEventListener('click', function() {
      togglePopupWindows();
  });
 
- document.getElementById('image-4').addEventListener('click', function() {
-     viewer.loadScene('image-4');
-     togglePopupWindows();
- });
 // Function to update degree scale
 function updateDegreeScale() {
     // Get the element where the degree scale will be displayed
