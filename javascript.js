@@ -12,18 +12,18 @@ var viewer = pannellum.viewer('panorama', {
             "type": "equirectangular",
             "panorama": "360.JPG", 
             "hfov": 200,
-            "yaw": -145,  // Set the yaw so that 145° becomes the new 0°
+            "yaw": 0,  // Set the initial yaw as 0 for the view
             "compass": true,
-            "northOffset": 0  // Keep the north offset at 0 or adjust if needed
+            "northOffset": 145  // Adjust this to align the visual direction to 0°
         },
   
         "image-2": {
             "type": "equirectangular",
             "panorama": "360.JPG",
             "hfov": 200,
-            "yaw": -145,  // Set the yaw for image-2 as well
+            "yaw": 0,  // Again, start this at 0° relative to the new orientation
             "compass": true,
-            "northOffset": 0
+            "northOffset": 145  // Same northOffset applied
         }
     }
 });
@@ -31,21 +31,21 @@ var viewer = pannellum.viewer('panorama', {
 // Function to update degree scale
 function updateDegreeScale() {
     var degreeScale = document.getElementById('degreeScale');
-    var adjustedYaw = viewer.getYaw();
+    var adjustedYaw = viewer.getYaw();  // Get current yaw directly from viewer
 
     // Normalize the yaw to be between 0 and 360 degrees
     if (adjustedYaw < 0) {
-      adjustedYaw += 360;
+        adjustedYaw += 360;
     }
     if (adjustedYaw >= 360) {
-      adjustedYaw -= 360;
+        adjustedYaw -= 360;
     }
 
     // Update the degree indicator with the corrected yaw
     degreeScale.innerText = `${adjustedYaw.toFixed(1)}°`;
 }
 
-// Ensure the degree indicator updates whenever the view changes
+// Event listener to update the degree scale during view changes
 viewer.on('viewchange', updateDegreeScale);
 
 // Call the function initially to set the degree scale
