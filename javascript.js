@@ -1,3 +1,5 @@
+console.log("JavaScript is running");  // Add this line to test if the script is running
+
 // Initialize the Pannellum viewer
 var viewer = pannellum.viewer('panorama', {
     "type": "equirectangular",
