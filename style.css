@@ -1,14 +1,29 @@
-/* Style for the degree indicator */
-#degreeIndicator {
+/* Style for the degree indicator container */
+#degreeIndicatorContainer {
     position: absolute;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
+    z-index: 1000;
+}
+
+/* Style for the degree indicator text */
+#degreeIndicator {
     font-size: 24px;
     font-weight: bold;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 20px;
     border-radius: 5px;
+    z-index: 1000;
+}
+
+/* Style for the short vertical line beneath the degree indicator */
+#degreeLine {
+    width: 2px;
+    height: 30px;
+    background-color: white;
+    margin: 0 auto;
     z-index: 1000;
 }
