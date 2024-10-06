@@ -3,62 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pannellum 360 Viewer with Degree Indicator</title>
+    <title>Pannellum Test</title>
     <!-- Pannellum CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.pannellum.org/2.5/pannellum.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Panorama container -->
     <div id="panorama" style="width: 100%; height: 100vh;"></div>
-    
-    <!-- Degree indicator at the top center -->
-    <div id="degreeIndicatorContainer">
-        <div id="degreeIndicator">0°</div>
-        <div id="degreeLine"></div>
-    </div>
 
     <!-- Pannellum JS -->
     <script type="text/javascript" src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
 
-    <!-- Custom JS -->
+    <!-- Minimal Custom JS -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Initialize the Pannellum viewer
+            // Initialize the Pannellum viewer with a test image
             var viewer = pannellum.viewer('panorama', {
                 "type": "equirectangular",
-                "panorama": "360.jpg", // Your 360 panorama image
+                "panorama": "https://pannellum.org/images/alma.jpg", // Use test panorama image
                 "autoLoad": true,
-                "compass": true, // Enable the compass at the bottom right
-                "hfov": 110, // Horizontal FOV (zoom level)
-                "yaw": 180, // Set initial yaw value
-                "showControls": true // Ensure controls are visible for interaction
+                "compass": true,
+                "hfov": 110,
+                "yaw": 180,
+                "showControls": true
             });
 
-            // Function to update the degree indicator dynamically
-            function updateDegreeIndicator() {
-                // Get the current yaw (rotation) of the viewer
-                var yaw = viewer.getYaw();
-                
-                // Normalize the yaw to be between 0 and 360 degrees
-                var degree = yaw % 360;
-                if (degree < 0) {
-                    degree += 360;
-                }
+            // Check if viewchange event fires
+            viewer.on('viewchange', function () {
+                console.log("View is changing");
+            });
 
-                // Update the degree indicator text with the normalized yaw value
-                document.getElementById('degreeIndicator').innerText = `${degree.toFixed(1)}°`;
-            }
-
-            // Ensure the degree indicator updates whenever the view changes
-            viewer.on('viewchange', updateDegreeIndicator);
-
-            // Ensure the degree indicator updates when the panorama is first loaded
-            viewer.on('load', updateDegreeIndicator);
-
-            // Initial call to set the degree on load
-            updateDegreeIndicator();
+            // Log if the panorama loads successfully
+            viewer.on('load', function () {
+                console.log("Panorama loaded successfully");
+            });
         });
     </script>
 </body>
