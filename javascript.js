@@ -13,7 +13,7 @@ var viewer = pannellum.viewer('panorama', {
             "hfov":200,
             "yaw":14,
             "compass":true,
-            "northOffset":-140
+            "northOffset":-16
         },
   
         "image-2": {
@@ -26,7 +26,7 @@ var viewer = pannellum.viewer('panorama', {
         "maxPitch": 25,
         "yaw": 14,
         "compass":true,
-        "northOffset":-140
+        "northOffset":-16
       },
 
     //   "image-3": {
@@ -121,8 +121,8 @@ function updateDegreeScale() {
   
     // Define initial yaw values for each image (adjust these as needed)
     var initialYaw = {
-      "image-1": 14,
-      "image-2": 14,
+      "image-1": 140,
+      "image-2": 140,
     //   "image-3": -165,
     //   "image-4": 295
     };
