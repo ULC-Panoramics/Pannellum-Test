@@ -12,31 +12,31 @@ var viewer = pannellum.viewer('panorama', {
             "type": "equirectangular",
             "panorama": "360.jpg", 
             "hfov": 200,
-            "yaw": 0,  // Initial yaw at 0 to match the correct start point
+            "yaw": 0,  // Start yaw at 0, corrected by northOffset
             "compass": true,
-            "northOffset": 145  // Align visual 0° with real-world 145°
+            "northOffset": 145  // Adjust to align 145° with 0°
         },
   
         "image-2": {
             "type": "equirectangular",
             "panorama": "360.jpg",
             "hfov": 200,
-            "yaw": 0,  // Initial yaw at 0
+            "yaw": 0,  // Start yaw at 0
             "compass": true,
-            "northOffset": 145  // Align visual 0° with real-world 145°
+            "northOffset": 145  // Align with northOffset of 145°
         }
     }
 });
 
-// Function to update degree scale
+// Function to update the degree indicator
 function updateDegreeScale() {
     var degreeScale = document.getElementById('degreeScale');
     
     // Get the current yaw from the viewer
-    var currentYaw = viewer.getYaw();
+    var currentYaw = viewer.getYaw();  // This gets the current yaw in real-time
 
-    // Adjust yaw based on northOffset (145°)
-    var adjustedYaw = currentYaw + 145; 
+    // Adjust yaw with the northOffset of 145°
+    var adjustedYaw = currentYaw + 145;
 
     // Normalize the yaw to be between 0 and 360 degrees
     if (adjustedYaw < 0) {
@@ -50,8 +50,11 @@ function updateDegreeScale() {
     degreeScale.innerText = `${adjustedYaw.toFixed(1)}°`;
 }
 
-// Event listener to update the degree scale during view changes
-viewer.on('viewchange', updateDegreeScale);
+// Register event listener for view changes to update the degree indicator
+viewer.on('viewchange', function() {
+    console.log("View is changing");  // Log to ensure the event is triggered
+    updateDegreeScale();              // Update the degree indicator
+});
 
 // Call the function initially to set the degree scale
 updateDegreeScale();
