@@ -41,20 +41,7 @@ var viewer = pannellum.viewer('panorama', {
         "compass":true,
         "northOffset":0
       },
-
-      "image-4":{
-        "type": "equirectangular",
-         "panorama": "NA",
-         "hfov":200,
-         "haov": 360,
-         "vaov":150,
-         "minPitch":-25,
-         "maxPitch": 25,
-         "yaw": 150,
-         "compass":true,
-         "northOffset":0
-        
-    //   }, 
+ 
     }
 }});
 function togglePopupBackground(containerId, isHover) {
@@ -66,26 +53,20 @@ if (isHover) {
 }
 }
 function togglePopupWindows() {
-        var popupContainer1 = document.getElementById('popup-container-1');
-        var popupContainer2 = document.getElementById('popup-container-2');
-        if (popupContainer1.style.display === 'block' || popupContainer2.style.display === 'block') {
-            popupContainer1.style.display = 'none';
-            popupContainer2.style.display = 'none';
-        } else {
-            popupContainer1.style.display = 'block';
-            popupContainer2.style.display = 'block';
-        }
-        var popupContainer3 = document.getElementById('popup-container-3');
-        var popupContainer4 = document.getElementById('popup-container-4');
-        if (popupContainer3.style.display === 'block' || popupContainer4.style.display === 'block') {
-            popupContainer3.style.display = 'none';
-            popupContainer4.style.display = 'none';
-        } else {
-            popupContainer3.style.display = 'block';
-            popupContainer4.style.display = 'block';
-    }
-   
-    } 
+var popupContainer1 = document.getElementById('popup-container-1');
+var popupContainer2 = document.getElementById('popup-container-2');
+var popupContainer3 = document.getElementById('popup-container-3');
+
+// Toggle popup containers 1, 2, and 3, without including popupContainer4
+if (popupContainer1.style.display === 'block' || popupContainer2.style.display === 'block' || popupContainer3.style.display === 'block') {
+    popupContainer1.style.display = 'none';
+    popupContainer2.style.display = 'none';
+    popupContainer3.style.display = 'none';
+} else {
+    popupContainer1.style.display = 'block';
+    popupContainer2.style.display = 'block';
+    popupContainer3.style.display = 'block';
+}
 
 // Event listener for height button
 document.getElementById('switch-panorama').addEventListener('click', function() {
@@ -107,10 +88,6 @@ document.getElementById('image-2').addEventListener('click', function() {
      togglePopupWindows();
  });
 
- document.getElementById('image-4').addEventListener('click', function() {
-     viewer.loadScene('image-4');
-     togglePopupWindows();
- });
 // Function to update degree scale
 function updateDegreeScale() {
     // Get the element where the degree scale will be displayed
