@@ -135,19 +135,20 @@
 
 .popup-container.one {
     left: -50%;
+    transform: translate(-285%, -50%); /* Center it */
 }
 
 .popup-container.two {
     left: -500%;
 }
 
-/* .popup-container.three {
+ .popup-container.three {
     left: -50%;
 }
 
 .popup-container.four {
     left: 380%;
-} */
+} 
 
 /* Responsive Styles */
 @media only screen and (max-width: 768px) {

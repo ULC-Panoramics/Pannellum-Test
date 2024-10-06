@@ -1,4 +1,4 @@
-var viewer = pannellum.viewer('panorama', { 
+var viewer = pannellum.viewer('panorama', {
     "autoLoad": true,
     "autoRotate": 0,
     "showControls": false,  
@@ -9,54 +9,54 @@ var viewer = pannellum.viewer('panorama', {
     "scenes": {
         "image-1": {
             "type": "equirectangular",
-            "panorama": "360.jpg", 
+            "panorama": "17m.JPG", 
             "hfov":200,
-            "yaw":14,
+            "yaw":0,
             "compass":true,
-            "northOffset":-16
+            "northOffset":0
         },
   
         "image-2": {
         "type": "equirectangular",
-        "panorama": "360.jpg",
+        "panorama": "17m.JPG",
         "hfov":200,
         "haov": 360,
         "vaov":150,
         "minPitch":-25,
         "maxPitch": 25,
-        "yaw": 14,
+        "yaw": 0,
         "compass":true,
-        "northOffset":-16
+        "northOffset":0
       },
 
-    //   "image-3": {
-    //     "type": "equirectangular",
-    //     "panorama": "23meter.jpg",
-    //     "hfov":200,
-    //     "haov": 360,
-    //     "vaov":150,
-    //     "minPitch":-25,
-    //     "maxPitch": 25,
-    //     "yaw": -165,
-    //     "compass":true,
-    //     "northOffset":-195
-    //   },
+       "image-3": {
+         "type": "equirectangular",
+        "panorama": "20m.JPG",
+        "hfov":200,
+        "haov": 360,
+        "vaov":150,
+        "minPitch":-25,
+        "maxPitch": 25,
+        "yaw": 0,
+        "compass":true,
+        "northOffset":0
+      },
 
-    //   "image-4":{
-    //     "type": "equirectangular",
-    //     "panorama": "25.5meter.jpg",
-    //     "hfov":200,
-    //     "haov": 360,
-    //     "vaov":150,
-    //     "minPitch":-25,
-    //     "maxPitch": 25,
-    //     "yaw": 295,
-    //     "compass":true,
-    //     "northOffset":248
+      "image-4":{
+        "type": "equirectangular",
+         "panorama": "23m.JPG",
+         "hfov":200,
+         "haov": 360,
+         "vaov":150,
+         "minPitch":-25,
+         "maxPitch": 25,
+         "yaw": 0,
+         "compass":true,
+         "northOffset":0
         
     //   }, 
     }
-});
+}});
 function togglePopupBackground(containerId, isHover) {
 var container = document.getElementById(containerId);
 if (isHover) {
@@ -102,15 +102,15 @@ document.getElementById('image-2').addEventListener('click', function() {
     togglePopupWindows();
 });
 
-// document.getElementById('image-3').addEventListener('click', function() {
-//     viewer.loadScene('image-3');
-//     togglePopupWindows();
-// });
+ document.getElementById('image-3').addEventListener('click', function() {
+     viewer.loadScene('image-3');
+     togglePopupWindows();
+ });
 
-// document.getElementById('image-4').addEventListener('click', function() {
-//     viewer.loadScene('image-4');
-//     togglePopupWindows();
-// });
+ document.getElementById('image-4').addEventListener('click', function() {
+     viewer.loadScene('image-4');
+     togglePopupWindows();
+ });
 // Function to update degree scale
 function updateDegreeScale() {
     // Get the element where the degree scale will be displayed
@@ -121,10 +121,10 @@ function updateDegreeScale() {
   
     // Define initial yaw values for each image (adjust these as needed)
     var initialYaw = {
-      "image-1": -14,
-      "image-2": -14,
-    //   "image-3": -165,
-    //   "image-4": 295
+      "image-1": 0,
+      "image-2": 0,
+      "image-3": 0,
+      "image-4": 0
     };
   
     // Get the adjusted yaw value based on the current scene and initial yaw
