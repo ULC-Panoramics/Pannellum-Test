@@ -12,18 +12,18 @@ var viewer = pannellum.viewer('panorama', {
             "type": "equirectangular",
             "panorama": "360.jpg", 
             "hfov": 200,
-            "yaw": 0,  // Set the initial yaw as 0 for the view
+            "yaw": 0,  // Initial yaw at 0 to match the correct start point
             "compass": true,
-            "northOffset": 145  // Adjust this to align the visual direction to 0°
+            "northOffset": 145  // Align visual 0° with real-world 145°
         },
   
         "image-2": {
             "type": "equirectangular",
             "panorama": "360.jpg",
             "hfov": 200,
-            "yaw": 0,  // Again, start this at 0° relative to the new orientation
+            "yaw": 0,  // Initial yaw at 0
             "compass": true,
-            "northOffset": 145  // Same northOffset applied
+            "northOffset": 145  // Align visual 0° with real-world 145°
         }
     }
 });
@@ -31,7 +31,12 @@ var viewer = pannellum.viewer('panorama', {
 // Function to update degree scale
 function updateDegreeScale() {
     var degreeScale = document.getElementById('degreeScale');
-    var adjustedYaw = viewer.getYaw();  // Get current yaw directly from viewer
+    
+    // Get the current yaw from the viewer
+    var currentYaw = viewer.getYaw();
+
+    // Adjust yaw based on northOffset (145°)
+    var adjustedYaw = currentYaw + 145; 
 
     // Normalize the yaw to be between 0 and 360 degrees
     if (adjustedYaw < 0) {
