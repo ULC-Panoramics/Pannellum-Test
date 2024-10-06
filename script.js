@@ -22,7 +22,7 @@ function updateDegreeIndicator() {
     }
 
     // Update the degree indicator text
-    document.getElementById('degreeIndicator').innerText = `${degree.toFixed(1)}°`;
+    document.getElementById('DegreeIndicator').innerText = `${degree.toFixed(1)}°`;
 }
 
 // Add an event listener to update the degree indicator when the view changes
