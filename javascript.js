@@ -121,8 +121,8 @@ function updateDegreeScale() {
   
     // Define initial yaw values for each image (adjust these as needed)
     var initialYaw = {
-      "image-1": 0,
-      "image-2": 0,
+      "image-1": 210,
+      "image-2": 210,
       "image-3": 0,
       "image-4": 0
     };
