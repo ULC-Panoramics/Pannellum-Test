@@ -7,7 +7,7 @@ var viewer = pannellum.viewer('panorama', {
     "hfov": 110,
     "pitch": 0,
     "yaw": 180, // Start facing south (adjust as needed)
-    "showControls": false
+    "showControls": true // Ensure controls are visible for interaction
 });
 
 // Function to update the degree indicator
@@ -26,7 +26,8 @@ function updateDegreeIndicator() {
 }
 
 // Add an event listener to update the degree indicator when the view changes
-viewer.on('viewchange', updateDegreeIndicator);
+viewer.on('load', updateDegreeIndicator); // Initial call when panorama is loaded
+viewer.on('viewchange', updateDegreeIndicator); // Update during view change
 
 // Initial call to set the degree on load
 updateDegreeIndicator();
